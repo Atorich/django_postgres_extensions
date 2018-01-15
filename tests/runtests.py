@@ -9,8 +9,9 @@ import subprocess
 import sys
 import tempfile
 import warnings
-import django
 
+import django
+import six
 from django.apps import apps
 from django.conf import settings
 from django.db import connection, connections
@@ -18,12 +19,9 @@ from django.test import TestCase, TransactionTestCase
 from django.test.runner import default_test_processes
 from django.test.selenium import SeleniumTestCaseBase
 from django.test.utils import get_runner
-from django.utils import six
 from django.utils._os import upath
 from django.utils.deprecation import RemovedInDjango20Warning
 from django.utils.log import DEFAULT_LOGGING
-
-
 
 # Make deprecation warnings errors to ensure no usage of deprecated features.
 warnings.simplefilter("error", RemovedInDjango20Warning)

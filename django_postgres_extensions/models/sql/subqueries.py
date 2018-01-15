@@ -1,6 +1,7 @@
-from django.db.models.sql.subqueries import UpdateQuery as BaseUpdateQuery
-from django.db.utils import six
+import six
 from django.core.exceptions import FieldError
+from django.db.models.sql.subqueries import UpdateQuery as BaseUpdateQuery
+
 
 class UpdateQuery(BaseUpdateQuery):
     def add_update_values(self, values):

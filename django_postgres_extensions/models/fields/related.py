@@ -1,15 +1,18 @@
-from django_postgres_extensions.models.fields import ArrayField
-from django.db.models.fields.related import RelatedField
-from django.db.models.query_utils import PathInfo
-from .reverse_related import ArrayManyToManyRel
-from .related_descriptors import MultiReferenceDescriptor
+import six
 from django.db import models
 from django.db.models.fields.related import RECURSIVE_RELATIONSHIP_CONSTANT, lazy_related_operation
+from django.db.models.fields.related import RelatedField
+from django.db.models.query_utils import PathInfo
 from django.forms.models import ModelMultipleChoiceField
-from django.utils import six
 from django.utils.encoding import force_text
+
+from django_postgres_extensions.models.fields import ArrayField
+from .related_descriptors import MultiReferenceDescriptor
 from .related_lookups import RelatedArrayContains, RelatedArrayExact, RelatedArrayContainedBy, RelatedContainsItem, \
-    RelatedArrayOverlap, RelatedAnyGreaterThan, RelatedAnyLessThanOrEqual, RelatedAnyLessThan, RelatedAnyGreaterThanOrEqual
+    RelatedArrayOverlap, RelatedAnyGreaterThan, RelatedAnyLessThanOrEqual, RelatedAnyLessThan, \
+    RelatedAnyGreaterThanOrEqual
+from .reverse_related import ArrayManyToManyRel
+
 
 class ArrayManyToManyField(ArrayField, RelatedField):
     # Field flags

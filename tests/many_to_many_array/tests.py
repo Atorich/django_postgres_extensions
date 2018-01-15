@@ -1,10 +1,11 @@
 from __future__ import unicode_literals
 
+import six
 from django.db import transaction
 from django.test import TestCase
-from django.utils import six
 
 from .models import Article, InheritedArticleA, InheritedArticleB, Publication
+
 
 class ManyToManyTests(TestCase):
 
